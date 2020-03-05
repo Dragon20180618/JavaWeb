@@ -1,0 +1,41 @@
+<head>
+<script type="text/javascript">
+	function compute(){
+		var v1=document.getElementById("value1");
+		v1=parseFloat(v1.value);
+		var v2=document.getElementById("value2");
+		v2=parseFloat(v2.value);
+		var o=document.getElementById("select");
+		var index=o.selectedIndex;
+		var op=o.options[index].value;
+		if(op="+"){
+			document.getElementById("result").innerText=v1+v2;
+		}
+		if(op="-"){
+			document.getElementById("result").innerText=v1-v2;
+		}
+		if(op="*"){
+			document.getElementById("result").innerText=v1*v2;
+		}
+		if(op="/"){
+			if(v2!=0)
+			document.getElementById("result").innerText=v1/v2;
+			else{
+			document.getElementById("result").innerText="zero can't be divided";
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="value1"/>
+	<select id="select">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="text" id="value2"/>
+	<input type="button" onclick="compute()" value="=">
+	<span id="result">*</span>
+</body>

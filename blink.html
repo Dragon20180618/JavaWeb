@@ -1,0 +1,9 @@
+<div id="blink">blink blink</div>
+<script language="javascript">
+    function changecolor() {
+        var color = "yellow|green|blue|red|black";
+        color = color.split("|");
+        document.getElementById("blink").style.color = color[parseInt(Math.random() * color.length)];
+    }
+    setInterval(changecolor, 200);
+</script>
