@@ -1,0 +1,28 @@
+alter table test rename 新的名字; --修改test表的名字  
+
+alter table test add  列名 varchar(10); --添加表列  
+alter table test drop  列名; --删除表列  
+
+alter table test modify 列名 char(10) --只修改表列数据类型  
+
+alter table test change 原来列名 新列名  char(40)  --将原来列名修改为新列名和新的数据类型
+
+mysql driver:  Class.forName("com.mysql.jdbc.Driver);
+oracle driver: Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection conn=DriverManager.getConnection(String url);
+Connection conn=DriverManager.getConnection(String url,String user,String password);
+URL: "jdbc:mysql://localhost:3306/web?user=root&password="123456”&useUnicode=true&characterEncoding=utf-8"
+
+更改一个属性的值：
+update 表名 set 属性名="属性值" where 条件
+eg: update album set url = "index.html" where id =1
+
+添加一组信息：
+insert into 表名(field1,field2,...fieldN)
+	values
+	(value1,value2,...valueN);
+或
+insert into 表名 values(value1,value2,...valueN);
+
+删除表中的一条信息：
+ delete from 表名 where 条件；
