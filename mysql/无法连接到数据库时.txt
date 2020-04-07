@@ -1,0 +1,11 @@
+首先检查你的密码是否正确
+
+检查密码无误后。
+以管理员方式运行 cmd (调用方式 ： Win+R)
+8.0版本： net start mysql80
+早期版本： net start mysql
+
+一般会显示类似于
+	MySQL80服务已经启动成功
+   这样的信息
+mysql -u root -p 以root账户登录 
