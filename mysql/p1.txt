@@ -1,6 +1,6 @@
 alter table test rename 新的名字; --修改test表的名字  
 
-alter table test add  列名 varchar(10); --添加表列  
+alter table test add  列名 char(10); --添加表列  
 alter table test drop  列名; --删除表列  
 
 alter table test modify 列名 char(10) --只修改表列数据类型  
@@ -16,7 +16,7 @@ URL: "jdbc:mysql://localhost:3306/web?user=root&password="123456”&useUnicode=tr
 更改一个属性的值：
 update 表名 set 属性名="属性值" where 条件
 eg: update album set url = "index.html" where id =1
-
+update users set last_login = NOW() where name = 
 添加一组信息：
 insert into 表名(field1,field2,...fieldN)
 	values
