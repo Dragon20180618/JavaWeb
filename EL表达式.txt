@@ -1,0 +1,16 @@
+${sessionScope.user.sex}
+
+所有EL都是以${为起始、以}为结尾的。上述EL范例的意思是：从Session的范围中，取得
+
+用户的性别。假若依照之前JSP Scriptlet的写法如下：
+
+User user =(User)session.getAttribute("user");
+
+String sex =user.getSex( );
+
+${username}
+因为我们并没有指定哪一个范围的username，所以它的默认值会先从Page 范围找，假如找不到，
+
+再依序到Request、Session、Application范围。假如途中找到username，就直接回传，不再继续找下去，
+
+但是假如全部的范围都没有找到时，就回传null，当然EL表达式还会做出优化，页面上显示空白，而不是打印输出NULL。
