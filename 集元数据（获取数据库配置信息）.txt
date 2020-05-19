@@ -1,0 +1,33 @@
+DatabaseMetaData meta = connection.getMetaDate();
+对数据库链接对象进行处理
+内置方法分两类
+1.返回 boolean
+2.返回 值
+
+boolean supportsOuterJoins 检查数据库是否支持外部链接
+
+boolean supportsStoredProcedures() 检查数据库是否支持储存过程
+
+Stirng getURL() 该方法的功能是返回用于连接数据库URL地址
+
+String getUserName() 获取当前用户名
+
+String getDatabaseProductName() 获取数据库产品名
+
+String getDatabaseProductVersion() 获取数据库版本号
+
+String getDriverName()  驱动器名称
+
+String getProductVersion() 获取产品版本号
+
+ResultSet getTypeInfo() 获取数据库中可能取得的所有数据类型
+
+
+
+ResultSetMetaDate()
+对ResultSet对象进行处理。
+ResultSetMetaDate meta = rs.getMetaDate();
+
+int getColumnCount() 返回ResultSet对象的列数
+
+String getColumnName(int column) 返回指定列名称
