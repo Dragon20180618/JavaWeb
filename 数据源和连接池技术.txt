@@ -1,0 +1,39 @@
+javax.sql.DataSource
+javax.naming.Context
+
+数据源技术
+大幅提高数据库访问速度
+预先建立好一定数量的数据库连接，并将这些连接保存在连接池Connect Pool中，由连接池负责对这些数据库连接进行管理。
+
+配置方法
+1.将MySQL数据库的驱动程序复制到Tomcat安装路径下的lib文件夹中
+
+
+2.在Tomcat服务器的文件context.xml中配置数据源参数（打开Eclipse->Servers->Tomcat v9.0->context.xml）
+<Resource	name = "jdbc/bookstore"  数据源的JNDI名
+		type = "javax.sql.DataSource"  数据源类型
+		auth = "Container"  数据源管理者，Container(由容器来创建和管理数据源)或Application(由Web应用来创建和管理数据源)
+		driverClassName = "com.mysql.cj.jdbc.Driver"
+		url = "jdbc:mysql://localhost:3306/bookstore"
+		username = "root"
+		password = "123"
+		maxActive = "50" 活动状态服务器最大数目，0表示不受限
+		maxIdle = "10" 空闲状态服务器的的最大数目，0表示不受限
+		maxWait = "6000"当连接池中无空闲状态链接时，请求数据库链接的最长等待时间，超出该事件将抛出异常，-1表示无限期等待      />
+
+
+3.在web.xml配置对连接池的引用
+<resource-ref>
+	<description>DataSource</description>
+	<res-ref-name>jdbc/bookstore</res-ref-name>
+	<res-type>javax.sql.DataSource</res-type>
+	<res-auth>Container</res-auth>
+</resource-ref>
+
+4.使用数据源对象
+	Context ctx = new InitialContext();
+	DataSource ds(DataSource)
+	ctx.lookup("java:comp/env/jdbc/bookstore");
+	
+	Connection con =  ds.getConnection();
+	con.close();返回数据库到连接池

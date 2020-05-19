@@ -1,4 +1,35 @@
-原子性
+﻿原子性
 一致性
 隔离性
 持久性
+
+Connection对象的setAutoCommit(boolean) 
+		开启或关闭自动提交方式。
+	getAutoCommit()方法检查自动提交是否打开
+java.sql.SavaPoint()设置保存点
+
+eg:
+	conn = DriverManager.getConnection("")
+	获取事务提交是否为自动提交
+	boolean autoCommit = conn.getAutoCommit();
+	关闭事务提交
+	conn.setAutoCommit(false)
+	添加批处理语句
+	stmt.executeQuery();	
+	···
+	···
+	···
+	提交事务
+	conn.commit();
+	恢复提交方式
+	conn.setAutoCommit(autoCommit)
+
+	配合try-catch如果提交出现问题，回滚
+	conn.rollback();
+
+设置保存点回溯
+	Savepoint s1 = null;
+	...
+	s1 = conn.setSavepoint()
+	...
+	conn.rollback(s1)
